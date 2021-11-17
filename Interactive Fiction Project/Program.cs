@@ -13,6 +13,7 @@ namespace Interactive_Fiction_Project
 
         }
 
+        // init story here
         static string [] story = new string[]
         {
 
