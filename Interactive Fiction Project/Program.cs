@@ -16,18 +16,23 @@ namespace Interactive_Fiction_Project
         static string StoryWritten;
         static string OptionA;
         static string OptionB;
-        static string PageA;
+        static string PageA = "0";
         static string PageB;
 
         //int CurrentPage = Int32.Parse(Page);
 
         static void Main(string[] args)
         {
-            while (GameOver = true)
+
+            StoryInit();
+            ProgressPage();
+
+
+            while (GameOver == true)
             {
                 ConsoleKeyInfo readKeyInput = Console.ReadKey(true);
 
-                if (TitlePage = true)
+                if (TitlePage == true)
                 {
                     if (readKeyInput.Key == ConsoleKey.D1)
                     {
@@ -40,7 +45,7 @@ namespace Interactive_Fiction_Project
                         GameOver = false;
                     }
                 }
-                else if (TitlePage = false)
+                else if (TitlePage == false)
                 {
                     if (readKeyInput.Key == ConsoleKey.D1)
                     {
@@ -50,6 +55,7 @@ namespace Interactive_Fiction_Project
                     else if (readKeyInput.Key == ConsoleKey.D2)
                     {
                         CurrentPage = Int32.Parse(PageB);
+                        ProgressPage();
                     }
                 }
 
@@ -61,11 +67,11 @@ namespace Interactive_Fiction_Project
 
         static void StoryInit()
         {
-            story[0] = "A Soldier's Story / 1 / 2";
+            story[0] = "A Soldier's Story/Start/Quit/1/2";
 
-            story[1] = "You are a soldier in the army of King Mithrades. Today you are going to battle against the King's brother, who has invaded the kingdom with an army of barbarians! / You go to the armory to pick your weapon for battle. / Pick a sword and shield. / Pick a spear. / 3 / 4";
-            story[2] = "You grab a sword and shield and march towards your unit for the battle. As you arrive you report to your commander John and ready yourself for battle. / Practice with your sword and shield. / Talk to your fellow soldiers. / 5 / 7";
-            story[3] = "You grab a spear and march towards your unit for the battle. As you arrive you report to your commander Robert and ready yourself for battle. / Practice with your spear. / Talk to your fellow soldiers. / 6 / 8";
+            story[1] = "You are a soldier in the army of King Mithrades. Today you are going to battle against the King's brother, who has invaded the kingdom with an army of barbarians! You go to the armory to pick your weapon for battle./Pick a sword and shield/Pick a spear/2/3";
+            story[2] = "You grab a sword and shield and march towards your unit for the battle. As you arrive you report to your commander John and ready yourself for battle./Practice with your sword and shield/Talk to your fellow soldiers/5/7";
+            story[3] = "You grab a spear and march towards your unit for the battle. As you arrive you report to your commander Robert and ready yourself for battle./Practice with your spear/Talk to your fellow soldiers/6/8";
         }
 
         static void ProgressPage()
@@ -77,14 +83,17 @@ namespace Interactive_Fiction_Project
             OptionB = Page[2];
             PageA = Page[3];
             PageB = Page[4];
+
+            WriteStory();
         }
 
         static void WriteStory()
         {
-            Console.WriteLine(CurrentPage);
             Console.WriteLine();
-            Console.WriteLine(OptionA);
-            Console.WriteLine(OptionB);
+            Console.WriteLine(StoryWritten);
+            Console.WriteLine();
+            Console.WriteLine("To " + OptionA + " press 1");
+            Console.WriteLine("To " + OptionB + " press 2");
         }
 
 
