@@ -58,6 +58,11 @@ namespace Interactive_Fiction_Project
                     }
                 }
 
+                if (GameOver == true)
+                {
+                    Environment.Exit(0);
+                }
+
             }
         }
 
@@ -102,10 +107,15 @@ namespace Interactive_Fiction_Project
             story[32] = "You try to block however the blow breaks your spear in half. The barbarian quickly follows with a second attack which kills you!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
             story[33] = "You block the first few blows however your shield is quickly reduced to splinters and you are cut down shortly after!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
             story[34] = "Your thrust hits the barbarian and they fall before you. You are able to defend yourself and slay more barbarians until you see them start to flee. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
-            story[35] = "Your swing strikes the barbarian down"
+            story[35] = "Your swing strikes the barbarian down. Using your sword and shield you are able to fend off attackers and slay several barbarians. After a time the barbarians begin to flee the battlefield. The battle is won!/You Have Survived, Retrun to Main Menu/You Have Survived, Quit Game/0/44";
+            story[36] = "You and your unit charge towards the King's evil brother. After a short but bloody fight, he is knocked off his horse and slain. With their leader dead, the barbarians begin to flee. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[37] = "You and your unit charge towards the King's evil brother. After a short but bloody fight, he is knocked off his horse and slain. With their leader dead, the barbarians begin to flee. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[38] = "Your unit stops its charge. The barbarians quickly rally, and along with the the personal guard of the King's brother, they quickly cut down you and your group./You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[39] = "Your unit stops its charge. The barbarians quickly rally, and along with the the personal guard of the King's brother, they quickly cut down you and your group./You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
 
 
-            story[44] = "Fin";
+
+            story[44] = "Fin/Fin/Fin/44/44";
             
             void Death()
             {
