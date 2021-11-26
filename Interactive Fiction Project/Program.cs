@@ -62,7 +62,7 @@ namespace Interactive_Fiction_Project
         }
 
         // init story here
-        static string[] story = new string[40];
+        static string[] story = new string[45];
 
         static void StoryInit() //the story itself
         {
@@ -83,9 +83,29 @@ namespace Interactive_Fiction_Project
             story[13] = "Your form up with your new comrades and raise your sword and shields as the barbarians charge towards you./Tell your comrades to 'Hold the line'/Yell 'Charge' and run forwards with your comrades towards the barbarians/25/27";
             story[14] = "You take up your position in the unit and ready your spear as the barbarians charge. You hear another yell near you and see the soldiers you were talking with charge towards the barbarians./Follow them/Hold your position/28/30";
             story[15] = "You take up your position and ready your sword and shield as the barbarians charge. You hear a yell near you and see the soldiers you were talking with charge the barbarians./Follow them/Hold your position/29/31";
-            story[16] = "The barbarians charge hits and you are thrown backwards. As you try and regain your feet a barbarian comes screaming towards you swinging an axe. You see the swing coming but cannot raise your spear in time to block it./You Have Died, Return to Main Menu/You have Died, Exit Game/0/31";
+            story[16] = "The barbarians charge hits and you are thrown backwards. As you try and regain your feet a barbarian comes screaming towards you swinging a mace. You see the swing coming but cannot raise your spear in time to block it!/You Have Died, Return to Main Menu/You have Died, Exit Game/0/44";
+            story[17] = "You are knocked flat as the barbarians charge hits you. You struggle to your feet and block a few swings from the barbarian infront of you before another barbarian attacks from the side and you are quickly cut down!/You Have Died, Return to Main Menu/You Have Died, Exit Game/0/44";
+            story[18] = "You charge towards the oncoming barbarians and spear the first one with your spear. You see another barbarian approaching you with a large two handed axe./Try to block their first swing/Use your spear to stab at them/32/34";
+            story[19] = "You charge towards the oncoming barbarians and manage to parry the first attack before you stab the attacking barbarian. Another barbarian charges towards you with an axe in each hand./Raise your shield and block their attacks/Attack first by swinging your sword at the barbarian/33/35";
+            story[20] = "You push towards the frontlines, shoving other soldiers out of the way. The sounds of clashing metal and screams get louder as you approach. You finally reach the front and see that the barbarian army has already been put to flight. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[21] = "As you push through other soldiers towards the frontlines, you can hear the sounds of metal clashing and screaming from ahead. The closer you get, the more you notice the sound is dying down to be replaced by cheering. You reach the front and find the barbarian army fleeing. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[22] = "As you stand at the rear of the army, you notice the distant sound of clashing metal and screams are getting closer. You start to see wounded soldiers running past and then you see them. The barbarians have broken the frontlines and are charging towards you. You try to defend youself with your spear however you are alone against many and are quickly cut down!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[23] = "While standing at the rear of the army, you notice the sound of clashing metal and screams seems to be getting louder. You see fellow soldiers fleeing past you, and finally see the barbarian army approaching. You manage to block some blows with your shield, but are quickly cut down by the oncoming tide!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[24] = "The barbaian charge hits your line of spear and you and your comrades are able to stop the charge. You see a swing from a barbarian with mace, but the soldier next to you blocks the blow and you strike the barbarian down. Your spearwall is able to continue to hold off the barbarians who soon realise they cannot break it and begin to retreat. The battle is won!/You Have Survived, Return to Menu/You Have Survived, Quit Game/0/44";
+            story[25] = "The barbarians are stopped cold by your shield wall. Your see a barbarian swing his axes at you, but the blow is blocked by the soldier next to you and you cut the barbarian down. The barbarians quickly realize they cannot break your shield wall and begin to flee. The battle is won!/You Have Survived, Return to Menu/You Have Survived, Quit Game/0/44";
+            story[26] = "You all level your spears and counter charge the oncoming barbarians. The charge slams into the barbarians and throws them back. You continue to push deeper into the enemy army with your squad until you spot a man on a horse who looks to be commanding the barbarians. It is the King's evil brother!/Charge him along with your unit/Hold your ground/36/38";
+            story[27] = "You raise your shields and charge with your unit. The charge slams into the oncoming barbarians and knocks them aside. You continue to cut your way through the barbarians until you see a man on a horse who looks to be giving orders. It is the King's evil brother!/Charge him with your unit/Hold your ground/37/39";
+            story[28] = "You follow the group of soldiers as they charge into the barbarian army. They are knocked back by the barbarian charge and quickly slain. You are left alone against the oncoming horde and are quickly cut down!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[29] = "You follow the group of soldiers as they charge into the barbarian army. They are knocked back by the barbarian charge and quickly slain. You are left alone against the oncoming horde and are quickly cut down!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[30] = "You stay braced as you watch the group of soldiers charge into the oncoming army. They are quickly slain by the horde. The charge continues on towards you and the rest of the army, but is stopped by the rest of the frontline. You are knocked unconscious but manage to survive the battle!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[31] = "You stay braced as you watch the group of soldiers charge into the oncoming army. They are quickly slain by the horde. The charge continues on towards you and the rest of the army, but is stopped by the rest of the frontline. You are knocked unconscious but manage to survive the battle!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[32] = "You try to block however the blow breaks your spear in half. The barbarian quickly follows with a second attack which kills you!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[33] = "You block the first few blows however your shield is quickly reduced to splinters and you are cut down shortly after!/You Have Died, Return to Main Menu/You Have Died, Quit Game/0/44";
+            story[34] = "Your thrust hits the barbarian and they fall before you. You are able to defend yourself and slay more barbarians until you see them start to flee. The battle is won!/You Have Survived, Return to Main Menu/You Have Survived, Quit Game/0/44";
+            story[35] = "Your swing strikes the barbarian down"
 
-            story[31] = "Fin";
+
+            story[44] = "Fin";
             
             void Death()
             {
@@ -113,6 +133,7 @@ namespace Interactive_Fiction_Project
 
         static void WriteStory() //writes the story on the page
         {
+            Console.Clear();
             Console.WriteLine();
             Console.WriteLine(StoryWritten);
             Console.WriteLine();
