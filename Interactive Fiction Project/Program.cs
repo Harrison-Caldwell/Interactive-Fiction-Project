@@ -115,7 +115,7 @@ namespace Interactive_Fiction_Project
 
 
 
-            story[44] = "Fin/Fin/Fin/44/44";
+            story[44] = "Fin/Quit/Quit/44/44";
             
             void Death()
             {
