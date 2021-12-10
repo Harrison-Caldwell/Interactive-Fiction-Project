@@ -50,9 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SaveFile.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Story.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
