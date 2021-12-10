@@ -55,7 +55,7 @@ namespace Interactive_Fiction_Project
                     }
                     else if (readKeyInput.Key == ConsoleKey.D3) // Load Save File
                     {
-
+                        SaveCheck();
                         saveFile = System.IO.File.ReadAllText(@"SaveFile.txt");
                         currentPage = Int32.Parse(saveFile);
                         OutOfRange();
@@ -65,7 +65,7 @@ namespace Interactive_Fiction_Project
                         
                     }
                 }
-                else if (titlePage == false) // takes player input to move to next choice
+                else if (titlePage == false) // takes player input to select next page
                 {
                     if (readKeyInput.Key == ConsoleKey.D1)
                     {
@@ -74,7 +74,7 @@ namespace Interactive_Fiction_Project
                         DisplayStory();
                         
                     }
-                    else if (readKeyInput.Key == ConsoleKey.D2)
+                    else if (readKeyInput.Key == ConsoleKey.D2)// takes player input to select next page
                     {
                         currentPage = Int32.Parse(pageB);
                         OutOfRange();
@@ -86,6 +86,7 @@ namespace Interactive_Fiction_Project
                         Environment.Exit(0);
                     }
                     SaveGame();
+                    GameOverCheck();
                     
                 }
                 
@@ -184,9 +185,20 @@ namespace Interactive_Fiction_Project
 
 
         }
-        static void SaveCheck()
+        static void SaveCheck()//checks that a save file exists
         {
+            if (System.IO.File.Exists(@"SaveFile.txt"))
+            {
 
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("NO SAVE DETECTED. APPLICATION WILL NOW EXIT");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
         }
 
         static void SaveGame() // saves the current page number to a file as a string
