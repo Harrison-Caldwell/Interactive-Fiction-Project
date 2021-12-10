@@ -8,67 +8,69 @@ namespace Interactive_Fiction_Project
 {
     class Program
     {
-        static string[] Story;
-        static bool GameOver = false;
-        static bool TitlePage = true;
-        static string[] Page;
-        static int CurrentPage = 0;
-        static string StoryWritten;
-        static string OptionA;
-        static string OptionB;
-        static string PageA = "0";
-        static string PageB;
+        static string[] story;
+        static bool gameOver = false;
+        static bool titlePage = true;
+        static string[] page;
+        static int currentPage;
+        static string storyWritten;
+        static string optionA;
+        static string optionB;
+        static string pageA = "0";
+        static string pageB;
+        static string save;
+        static string saveFile;
 
         //int CurrentPage = Int32.Parse(Page);
 
         static void Main(string[] args)
         {
 
-            Story = System.IO.File.ReadAllLines(@"Story.txt");
+            story = System.IO.File.ReadAllLines(@"Story.txt");
             ProgressPage();
             
             
+            
 
 
-            while (GameOver == false) // game loop
+            while (gameOver == false) // game loop
             {
                 ConsoleKeyInfo readKeyInput = Console.ReadKey(true);
                 
 
-                if (TitlePage == true) //enables quitting the game from title page
+                if (titlePage == true) //enables quitting the game from title page
                 {
                     
                     if (readKeyInput.Key == ConsoleKey.D1)
                     {
-                        CurrentPage = Int32.Parse(PageA);
-                        TitlePage = false;
+                        currentPage = Int32.Parse(pageA);
+                        titlePage = false;
                         ProgressPage();
                     }
                     else if (readKeyInput.Key == ConsoleKey.D2)
                     {
-                        GameOver = true;
+                        gameOver = true;
                     }
-                    else if (readKeyInput.Key == ConsoleKey.D3)
+                    else if (readKeyInput.Key == ConsoleKey.D3) // Load Save File
                     {
-                        
-                        
-                            System.IO.File.ReadAllText(@"SaveFile.txt");
-                        ProgressPage();
-                            
-                            TitlePage = false;
+
+                        currentPage = Int32.Parse(saveFile);
+                        saveFile = System.IO.File.ReadAllText(@"SaveFile.txt");
+                        ProgressPage();    
+                        titlePage = false;
                         
                     }
                 }
-                else if (TitlePage == false)
+                else if (titlePage == false)
                 {
                     if (readKeyInput.Key == ConsoleKey.D1)
                     {
-                        CurrentPage = Int32.Parse(PageA);
+                        currentPage = Int32.Parse(pageA);
                         ProgressPage();
                     }
                     else if (readKeyInput.Key == ConsoleKey.D2)
                     {
-                        CurrentPage = Int32.Parse(PageB);
+                        currentPage = Int32.Parse(pageB);
                         ProgressPage();
                     }
                     else if (readKeyInput.Key == ConsoleKey.Escape)
@@ -77,7 +79,7 @@ namespace Interactive_Fiction_Project
                     }
                 }
 
-                if (GameOver == true)
+                if (gameOver == true)
                 {
                     Environment.Exit(0);
                 }
@@ -88,23 +90,39 @@ namespace Interactive_Fiction_Project
             
             void Death()
             {
-                if (Story[CurrentPage].Contains("Fin"))
+                if (story[currentPage].Contains("Fin"))
                 {
-                    GameOver = true;
+                    gameOver = true;
                 Environment.Exit(0);
                 }
             }
 
+        static void PageLengthCheck()
+        {
+            if (page.Length >= 4)
+            {
+                Console.WriteLine("Error Detected with Page Length, Application Will Now Exit");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+        }
+
+        static void FindBlanks()
+        {
+            
+
+        }
+
 
         static void ProgressPage() //splits the story line into page array
         {
-            Page = Story[CurrentPage].Split('/');
+            page = story[currentPage].Split('/');
 
-            StoryWritten = Page[0];
-            OptionA = Page[1];
-            OptionB = Page[2];
-            PageA = Page[3];
-            PageB = Page[4];
+            storyWritten = page[0];
+            optionA = page[1];
+            optionB = page[2];
+            pageA = page[3];
+            pageB = page[4];
 
             WriteStory();
             
@@ -112,10 +130,12 @@ namespace Interactive_Fiction_Project
 
         static void SaveGame()
         {
+            
             ConsoleKeyInfo readKeyInput = Console.ReadKey(true);
             if (readKeyInput.Key == ConsoleKey.D4)
             {
-                System.IO.File.WriteAllText(@"SaveFile.txt", Story[CurrentPage]);
+                save = currentPage.ToString();
+                System.IO.File.WriteAllText(@"SaveFile.txt", save);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Game Saved");
                 Console.ResetColor();
@@ -127,15 +147,15 @@ namespace Interactive_Fiction_Project
         {
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine(StoryWritten);
+            Console.WriteLine(storyWritten);
             Console.WriteLine();
-            Console.WriteLine("To " + OptionA + " Press 1");
-            Console.WriteLine("To " + OptionB + " Press 2");
-            if (TitlePage == true)
+            Console.WriteLine("To " + optionA + " Press 1");
+            Console.WriteLine("To " + optionB + " Press 2");
+            if (titlePage == true)
             {
                 Console.WriteLine("To Load Game Press 3");
             }
-            else if (TitlePage == false)
+            else if (titlePage == false)
             {
                 Console.WriteLine("To Quit Game Without Saving Press Escape");
                 Console.WriteLine("To Save Game Press 4");
@@ -148,6 +168,8 @@ namespace Interactive_Fiction_Project
         {
             Console.WriteLine("To Load Save Press 3");
         }
+
+        
 
 
 
